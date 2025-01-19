@@ -40,7 +40,7 @@ Installation:
 
 - Steps
 1. Clone the repository:
-git clone https://github.com/your-username/event-management-app.git
+git clone https://github.com/NoPresentation/Eventer.git
 
 2. Create a virtual environment and activate it in your directory
 python -m venv /path/to/new/virtual/environment
