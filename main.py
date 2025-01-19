@@ -59,9 +59,9 @@ def login():
             session['user_id'] = user.id
             print(session.get('user_id'))
             return redirect(url_for('home'))
-        
-    print("USER NOT FOUND")
-    return render_template('login.html', form=loginform)
+
+    error_message = 'Make sure the information you entered is correct, or create an account if you are not a user yet'
+    return render_template('login.html', form=loginform, error_message=error_message)
 
 @app.route('/logout', methods=['GET','POST'])
 def logout():
@@ -118,7 +118,7 @@ def update_event(event_id):
     event = Event.query.get_or_404(event_id)
     form = EventForm(obj=event)
     form.submit.label.text = "Update Event"
-    if form.validate_on_submit():
+    if form.validate_on_submit() and session['user_id'] == event.user_id:
         event.title = form.title.data
         event.location = form.location.data
         event.description = form.description.data
@@ -130,7 +130,7 @@ def update_event(event_id):
 @app.route('/delete/<int:event_id>')
 def delete_event(event_id):
     event = Event.query.get(event_id)
-    if event:
+    if event and session['user_id'] == event.user_id:
         db.session.delete(event)
         db.session.commit()
         return redirect(url_for('home'))

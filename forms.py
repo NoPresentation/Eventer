@@ -13,4 +13,4 @@ class EventForm(FlaskForm):
 class LogInForm(FlaskForm):
   user_name = StringField(label='Username', validators=[DataRequired()])
   password = StringField(label='Password', validators=[DataRequired()])
-  submit = SubmitField('Log In')
+  submit = SubmitField('Enter')

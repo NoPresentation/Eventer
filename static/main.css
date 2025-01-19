@@ -42,6 +42,7 @@ footer{
   border-radius: 10px;
   margin-left: auto;
   margin-right:auto ;
+  margin-bottom: 25px;
   padding-bottom: 5%
 }
 
@@ -143,4 +144,8 @@ a{
 }
 a:hover{
   color:#3185FC;
+}
+
+#note{
+  color:red;
 }
