@@ -6,12 +6,12 @@
   <meta charset = "utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-  <title> {%block title%} {% endblock %} - HTUx Events </title>
+  <title> {%block title%} {% endblock %} - Eventer </title>
 </head>
 
 <body>
   <header>
-    <h1>TASKITY</h1>
+    <h1>EVENTER</h1>
   </header>
   <main>
     <div class="content">
@@ -20,7 +20,7 @@
     
   </main>
   <footer>
-    <p class = "ftitle">&copy; <span id = "year"></span> Event Management System - HTUx</span></p>
+    <p class = "ftitle">&copy; <span id = "year"></span> Event Management System - <a href="https://htux.org/" style="color:white">HTUx</a></span></p>
       {% if 'user_id' in session %}
           <a href="{{ url_for('logout') }}" class="ftitle">Logout</a>
       {% endif %}

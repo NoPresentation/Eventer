@@ -7,7 +7,7 @@ class EventForm(FlaskForm):
   title = StringField(label='Title', validators=[DataRequired()])
   location = StringField(label='Event Location', validators=[DataRequired()])
   description = TextAreaField(label='Description', validators=[DataRequired()])
-  submit = SubmitField('Commit')
+  submit = SubmitField('Submit')
 
 
 class LogInForm(FlaskForm):
