@@ -39,16 +39,13 @@ Installation:
     WTForms==3.2.1
 
 - Steps
-1. Clone the repository:
-git clone https://github.com/NoPresentation/Eventer.git
-
-2. Create a virtual environment and activate it in your directory
+1. Create a virtual environment and activate it in your directory
 python -m venv /path/to/new/virtual/environment
 
-3. Install dependencies:
+2. Install dependencies:
 pip install -r req.txt
 
-4. Run the application:
+3. Run the application:
 flask run
 Open your browser and navigate to http://127.0.0.1:5000/.
 

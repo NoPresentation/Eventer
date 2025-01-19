@@ -9,7 +9,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SECRET_KEY'] = 'if_you_hack_me_you_will_be_hacked'
 db = SQLAlchemy(app)
 
-# Database Models
+# Database Models(Tables)
 class User(db.Model):
     __tablename__ = 'users'
 
@@ -62,6 +62,7 @@ def login():
 
     error_message = 'Make sure the information you entered is correct, or create an account if you are not a user yet'
     return render_template('login.html', form=loginform, error_message=error_message)
+
 
 @app.route('/logout', methods=['GET','POST'])
 def logout():
@@ -116,9 +117,9 @@ def create_event():
 @app.route('/update_event/<int:event_id>', methods=['GET', 'POST'])
 def update_event(event_id):
     event = Event.query.get_or_404(event_id)
-    form = EventForm(obj=event)
-    form.submit.label.text = "Update Event"
-    if form.validate_on_submit() and session['user_id'] == event.user_id:
+    form = EventForm(obj=event) # Passing the event to pre-populate the data fields
+    form.submit.label.text = "Update Event" # Changing the label of the button to suit the update form
+    if form.validate_on_submit() and session['user_id'] == event.user_id: # Making sure the creator of the event is the one making modifications
         event.title = form.title.data
         event.location = form.location.data
         event.description = form.description.data
@@ -130,7 +131,7 @@ def update_event(event_id):
 @app.route('/delete/<int:event_id>')
 def delete_event(event_id):
     event = Event.query.get(event_id)
-    if event and session['user_id'] == event.user_id:
+    if event and session['user_id'] == event.user_id: # Making sure the creator of the event is the one deleting it
         db.session.delete(event)
         db.session.commit()
         return redirect(url_for('home'))
