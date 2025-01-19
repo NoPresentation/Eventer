@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Event Details
+{% endblock %}
+
+{% block content %}
+    <h3 id="details_title">{{ event.title }}</h3>
+    <div class="details">
+        <p>Event Description: {{ event.description }}</p>
+        <p>Event Location: {{ event.location }}</p>
+        <p>Event Date: {{ event.date.strftime('%B %d %Y') }}</p>
+    </div>
+    <div class="updates">
+        <p><a href="{{ url_for('update_event' , event_id = event.id) }}">Update Event</a></p>
+
+        <p><a href="{{ url_for('delete_event' , event_id = event.id) }}"
+        onclick="return confirm('Are you sure you want to delete this event?')">
+             Delete Event
+            </a>
+        </p>
+
+        <p class="navigation"><a href="{{ url_for('home') }}">Back Home</a></p>
+    </div>
+    
+{% endblock %}

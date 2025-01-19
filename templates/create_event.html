@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Events{% endblock %}
+
+{% block content %}
+<p class="page_title">Create event page</p>
+<form class = "form" method="POST">
+  {{ form.hidden_tag() }}
+  <div>
+    {{ form.title.label }}
+    {{ form.title }}
+  </div>
+  <div>
+    {{ form.location.label }}
+    {{ form.location }}
+  </div>
+  <div>
+    {{ form.description.label }}
+    {{ form.description }}
+  </div>
+  <div class = "submit">
+    {{ form.submit() }}
+  </div>
+  <div>
+    <p class="navigation"><a href="{{ url_for('home') }}">Back Home</a></p>
+  </div>
+</form>
+{% endblock %}

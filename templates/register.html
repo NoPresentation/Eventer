@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Create new account{% endblock %}
+
+{% block content %}
+<p class="page_title">Create a new account</p>
+<form class = "form" method="POST">
+  {{ form.hidden_tag() }}
+  <div>
+    {{ form.user_name.label }}
+    {{ form.user_name }}
+  </div>
+  <div>
+    {{ form.password.label }}
+    {{ form.password }}
+  </div>
+  <div class = "submit">
+    {{ form.submit() }}
+  </div>
+</form>
+{% endblock %}

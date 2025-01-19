@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+  <link href = "{{url_for('static', filename = 'main.css')}}" rel = "stylesheet" type = "text/css" />
+  <meta charset = "utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+  <title> {%block title%} {% endblock %} - HTUx Events </title>
+</head>
+
+<body>
+  <header>
+    <h1>TASKITY</h1>
+  </header>
+  <main>
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
+    
+  </main>
+  <footer>
+    <p class = "ftitle">&copy; <span id = "year"></span> Event Management System - HTUx</span></p>
+      {% if 'user_id' in session %}
+          <a href="{{ url_for('logout') }}" class="ftitle">Logout</a>
+      {% endif %}
+  </footer>
+  <script src = "{{url_for('static', filename = 'main.js')}}"></script>
+</body>
+</html>
